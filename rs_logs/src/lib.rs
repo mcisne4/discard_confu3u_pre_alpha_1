@@ -1,15 +1,20 @@
 use rs_logs_macro::Logger;
 
-trait Logger {}
+trait Logger {
+    fn log_path() -> (&'static str, &'static str);
+}
 
 #[derive(Logger)]
-#[idx(crate_idx = 1, mod_idx = 1)]
-#[src("rs_logger::module::path")]
+#[config(
+    crate_idx = 1,
+    mod_idx = 1,
+    location = "rs_logger::module::path::can::be::long"
+)]
 enum Logs101 {
-    #[log("Log some content")]
+    #[info_msg("Log some content")]
     _Log01,
-    #[warning("A {} warning caused by {}")]
+    #[warn_msg("A {} warning caused by {}")]
     _Warn02(i32, String),
-    #[error("Error caused by {}")]
+    #[error_msg("Error caused by {}")]
     _Error03(String),
 }
