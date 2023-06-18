@@ -1,14 +1,15 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+use rs_logs_macro::Logger;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+trait Logger {}
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+#[derive(Logger)]
+#[idx(crate_idx = 1, mod_idx = 1)]
+#[src("rs_logger::module::path")]
+enum Logs101 {
+    #[log("Log some content")]
+    _Log01,
+    #[warning("A {} warning caused by {}")]
+    _Warn02(i32, String),
+    #[error("Error caused by {}")]
+    _Error03(String),
 }
