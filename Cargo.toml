@@ -2,4 +2,6 @@
 members = [
   "rs_tauri",
   "rs_dev",
+  "rs_logs_macro",
+  "rs_logs",
 ]

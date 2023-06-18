@@ -1,9 +1,9 @@
 [package]
-name = "rs_dev"
+name = "rs_logs"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rs_logs = { path = "../rs_logs" }
+rs_logs_macro = { path = "../rs_logs_macro" }

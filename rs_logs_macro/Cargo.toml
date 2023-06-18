@@ -1,9 +1,15 @@
 [package]
-name = "rs_dev"
+name = "rs_logs_macro"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rs_logs = { path = "../rs_logs" }
+deluxe = "0.5.0"
+proc-macro2 = "1.0.60"
+quote = "1.0.28"
+syn = "2.0.18"
+
+[lib]
+proc-macro = true
