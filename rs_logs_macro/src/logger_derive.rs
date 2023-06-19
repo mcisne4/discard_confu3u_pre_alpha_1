@@ -1,4 +1,5 @@
 mod enum_attributes;
+mod enum_data;
 mod impl_statement;
 
 pub fn logger_derive(item: proc_macro::TokenStream) -> deluxe::Result<proc_macro2::TokenStream> {
@@ -6,6 +7,9 @@ pub fn logger_derive(item: proc_macro::TokenStream) -> deluxe::Result<proc_macro
 
     // --- Parse TokenStream --- //
     let mut ast = syn::parse2::<syn::DeriveInput>(item)?;
+
+    // --- Enum Data --- //
+    let mut enum_data = enum_data::get_enum_data(&mut ast)?;
 
     // --- Enum Attributes --- //
     let (log_prefix, log_location) = enum_attributes::get_enum_attributes(&mut ast)?;
