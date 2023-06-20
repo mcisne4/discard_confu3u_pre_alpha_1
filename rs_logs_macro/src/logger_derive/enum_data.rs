@@ -1,4 +1,4 @@
-pub fn get_enum_data(ast: &mut syn::DeriveInput) -> deluxe::Result<&syn::DataEnum> {
+pub fn get_enum_data(ast: &mut syn::DeriveInput) -> deluxe::Result<syn::DataEnum> {
     let enum_data = match &ast.data {
         syn::Data::Enum(data) => data,
         syn::Data::Struct(data) => return Err(syn::Error::new_spanned(
@@ -11,5 +11,5 @@ pub fn get_enum_data(ast: &mut syn::DeriveInput) -> deluxe::Result<&syn::DataEnu
         )),
     };
 
-    Ok(enum_data)
+    Ok(enum_data.to_owned())
 }

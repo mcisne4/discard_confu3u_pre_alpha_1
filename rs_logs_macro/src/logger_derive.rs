@@ -1,6 +1,10 @@
 mod enum_attributes;
 mod enum_data;
 mod impl_statement;
+mod validate_msg;
+mod variant_attributes;
+mod variant_data;
+mod variant_msg;
 
 pub fn logger_derive(item: proc_macro::TokenStream) -> deluxe::Result<proc_macro2::TokenStream> {
     let item: proc_macro2::TokenStream = item.into();
@@ -15,6 +19,8 @@ pub fn logger_derive(item: proc_macro::TokenStream) -> deluxe::Result<proc_macro
     let (log_prefix, log_location) = enum_attributes::get_enum_attributes(&mut ast)?;
     let log_prefix = log_prefix.as_str();
     let log_location = log_location.as_str();
+
+    // let variant_data = variant_data::get_variant_data(&mut enum_data);
 
     // --- Impl Statement --- //
     let impl_stmt = impl_statement::get_impl_statement(&ast);

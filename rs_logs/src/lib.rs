@@ -10,11 +10,13 @@ trait Logger {
     mod_idx = 1,
     location = "rs_logger::module::path::can::be::long"
 )]
-enum Logs101 {
+pub enum Logs101 {
     #[info_msg("Log some content")]
     _Log01,
     #[warn_msg("A {} warning caused by {}")]
     _Warn02(i32, String),
     #[error_msg("Error caused by {}")]
     _Error03(String),
+    #[info_msg("Struct data")]
+    _Info04 { x: i32 },
 }
