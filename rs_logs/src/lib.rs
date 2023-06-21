@@ -1,8 +1,11 @@
 use rs_logs_macro::Logger;
 
-// trait Logger {
-//     fn log_path() -> (&'static str, &'static str);
-// }
+trait Logger {
+    // fn log_path() -> (&'static str, &'static str);
+}
+
+#[derive(Logger)]
+enum SomeEnum {}
 
 // #[derive(Logger)]
 // #[config(
