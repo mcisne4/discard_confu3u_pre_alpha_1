@@ -4,8 +4,26 @@ trait Logger {
     // fn log_path() -> (&'static str, &'static str);
 }
 
+// #[derive(Logger)]
+// enum ErrLog {
+//     A,
+// }
+
 #[derive(Logger)]
-enum SomeEnum {}
+// #[info_msg] //  Meta::Path
+// #[warn_msg] //  Meta::Path
+// #[error_msg] // Meta::Path
+// #[config] // Meta::Path
+#[info_msg("hot")] // Meta::List
+#[warn_msg(a = 2, b = 3)] // Meta::List
+#[config(2, 34, "lorem ipsum dorem", rs_logger::debug::this)]
+// #[error_msg = "Some Data"]
+pub enum DevEnum {
+    Item1,
+    Item2,
+    Item3,
+    Item4,
+}
 
 // #[derive(Logger)]
 // #[config(
@@ -23,3 +41,11 @@ enum SomeEnum {}
 //     #[info_msg("Struct data")]
 //     _Info04 { x: i32 },
 // }
+
+#[derive(Logger)]
+#[crate_idx = 1]
+#[mod_idx = 2]
+#[location = "rs_logger::module::path"]
+pub enum TestLog {
+    Item1,
+}
