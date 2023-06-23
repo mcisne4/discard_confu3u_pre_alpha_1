@@ -5,7 +5,12 @@ trait Logger {
 }
 
 #[derive(Logger)]
-#[info_msg] // syn::Meta::Path
+// #[info_msg] // syn::Meta::Path
+// #[warn_msg] // syn::Meta::Path
+// #[error_msg] // syn::Meta::Path
+// #[crate_idx] // syn::Meta::Path
+// #[mod_idx] // syn::Meta::Path
+// #[location] //syn::Meta::Path
 #[info_msg = 23] // syn::Meta::NameValue
 #[info_msg = "a::b::c::d"] // syn::Meta::NameValue
 #[warn_msg(23)] // syn::Meta::List

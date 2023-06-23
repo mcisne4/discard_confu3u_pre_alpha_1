@@ -1,3 +1,4 @@
+#[allow(unused)]
 mod macro_logger;
 
 #[proc_macro_derive(
