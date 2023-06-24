@@ -1,3 +1,4 @@
+mod attr_errors;
 mod meta_list;
 mod meta_namevalue;
 mod meta_path;

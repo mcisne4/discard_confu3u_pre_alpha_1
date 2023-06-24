@@ -5,16 +5,32 @@ trait Logger {
 }
 
 #[derive(Logger)]
-// #[info_msg] // syn::Meta::Path
-// #[warn_msg] // syn::Meta::Path
-// #[error_msg] // syn::Meta::Path
-// #[crate_idx] // syn::Meta::Path
-// #[mod_idx] // syn::Meta::Path
-// #[location] //syn::Meta::Path
-#[info_msg = 23] // syn::Meta::NameValue
-#[info_msg = "a::b::c::d"] // syn::Meta::NameValue
-#[warn_msg(23)] // syn::Meta::List
-#[warn_msg("a::b::c::d")] // syn::Meta::List
+// --- syn::Meta::Path >> Invalid --- //
+// #[info_msg]
+// #[warn_msg]
+// #[error_msg]
+// #[crate_idx]
+// #[mod_idx]
+// #[location]
+// --- syn::Meta::NameValue >> Invalid --- //
+// #[info_msg = 15]
+// #[warn_msg = 15]
+// #[error_msg = 15]
+// #[location = 15]
+// #[crate_idx = "Example"]
+// #[mod_idx = "Example"]
+// #[crate_idx = 16]
+// #[mod_idx = 256]
+// --- syn::Meta::NameValue >> String --- //
+#[info_msg = "Example"]
+#[warn_msg = "Example"]
+#[error_msg = "Example"]
+#[crate_idx = 15]
+#[mod_idx = 255]
+#[location = "Example"]
+// --- syn::Meta::List --- //
+// #[warn_msg(23)] // syn::Meta::List
+// #[warn_msg("a::b::c::d")] // syn::Meta::List
 pub enum EnumLogger {
     Item1,
     Item2,
