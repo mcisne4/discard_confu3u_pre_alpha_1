@@ -22,13 +22,28 @@ trait Logger {
 // #[crate_idx = 16]
 // #[mod_idx = 256]
 // --- syn::Meta::NameValue >> String --- //
-#[info_msg = "Example"]
-#[warn_msg = "Example"]
-#[error_msg = "Example"]
-#[crate_idx = 15]
-#[mod_idx = 255]
-#[location = "Example"]
-// --- syn::Meta::List --- //
+// #[info_msg = "Example"]
+// #[warn_msg = "Example"]
+// #[error_msg = "Example"]
+// #[crate_idx = 15]
+// #[mod_idx = 255]
+// #[location = "Example"]
+// --- syn::Meta::List >> Invalid --- //
+#[info_msg()]
+// #[info_msg(a = 23, b = "Hello World")]
+// #[warn_msg(a = 23, b = "Hello World")]
+// #[error_msg(a = 23, b = "Hello World")]
+// #[crate_idx(a = 23, b = "Hello World")]
+// #[mod_idx(a = 23, b = "Hello World")]
+// #[location(a = 23, b = "Hello World")]
+// --- syn::Meta::List >> Valid ---//
+#[info_msg("Info Message")]
+// #[warn_msg("Warning Message")]
+// #[error_msg]
+// #[crate_idx]
+// #[mod_idx]
+// #[location]
+
 // #[warn_msg(23)] // syn::Meta::List
 // #[warn_msg("a::b::c::d")] // syn::Meta::List
 pub enum EnumLogger {

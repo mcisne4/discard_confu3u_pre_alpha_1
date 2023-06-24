@@ -4,7 +4,7 @@ mod meta_namevalue;
 mod meta_path;
 mod types;
 
-pub use types::{ParsedAttr, ParsedAttrArg};
+pub use types::ParsedAttr;
 
 pub fn parse_attribute<'a>(attr: &'a syn::Attribute) -> syn::Result<Option<ParsedAttr>> {
     let parsed_attr = match &attr.meta {

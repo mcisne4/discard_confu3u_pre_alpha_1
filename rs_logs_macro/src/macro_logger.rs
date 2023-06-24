@@ -25,8 +25,9 @@ fn testing<'a>(ast: &'a syn::DeriveInput) -> syn::Result<()> {
         match attributes::parse_attribute(attr) {
             Ok(result) => {
                 if let Some(parsed_attr) = result {
+                    // eprintln!("OK: {:?}", parsed_attr.ident.to_string());
                     eprintln!(
-                        "Ident: {}\nValue: {}",
+                        "Ident: {}\nValue: {}\n",
                         parsed_attr.ident.to_string(),
                         parsed_attr.value
                     );
