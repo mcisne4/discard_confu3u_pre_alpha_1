@@ -1,3 +1,6 @@
+mod attr_data;
+mod enum_attributes;
+mod errors;
 mod is_enum;
 
 pub fn macro_logger(
@@ -9,7 +12,10 @@ pub fn macro_logger(
     let declaration = venial::parse_declaration(item)?;
 
     // --- Validate Enum Type --- //
-    let _enum_ast = is_enum::declaration_is_enum(&declaration)?;
+    let enum_ast = is_enum::declaration_is_enum(&declaration)?;
+
+    // --- Enum Data --- //
+    let enum_data = enum_attributes::parse_enum_attributes(enum_ast)?;
 
     // --- To TokenStream --- //
     Ok(quote::quote! {
