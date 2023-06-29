@@ -1,4 +1,7 @@
+mod errors;
 mod is_enum;
+
+pub use errors::{LogResult, LoggerError};
 
 pub fn macro_logger(
     item: proc_macro::TokenStream,
