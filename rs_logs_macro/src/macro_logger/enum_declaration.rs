@@ -1,4 +1,4 @@
-use crate::macro_logger::logger_errors::EnumDeclaration;
+use crate::macro_logger::errors::{EnumErrors, ToVenialError};
 use crate::macro_logger::LoggerResult;
 
 pub fn declaration_is_enum<'a>(
@@ -6,6 +6,6 @@ pub fn declaration_is_enum<'a>(
 ) -> LoggerResult<&'a venial::Enum> {
     match declaration.as_enum() {
         Some(yes) => Ok(yes),
-        None => Err(EnumDeclaration::NotAnEnum.at(declaration)),
+        None => Err(EnumErrors::InvalidDeclarationType.at(declaration)),
     }
 }

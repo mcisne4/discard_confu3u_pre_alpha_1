@@ -1,7 +1,7 @@
 mod enum_declaration;
-mod errors;
+pub mod errors;
 
-pub use errors::{logger_errors, LoggerResult};
+use errors::LoggerResult;
 
 pub fn macro_logger(item: proc_macro::TokenStream) -> LoggerResult<proc_macro2::TokenStream> {
     let item = proc_macro2::TokenStream::from(item);
