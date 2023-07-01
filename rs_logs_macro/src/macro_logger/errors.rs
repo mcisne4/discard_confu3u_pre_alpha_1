@@ -1,5 +1,7 @@
 mod enum_errors;
+mod example_code;
 mod types;
+mod value_errors;
 mod variant_errors;
 
 pub type LoggerResult<T> = std::result::Result<T, venial::Error>;

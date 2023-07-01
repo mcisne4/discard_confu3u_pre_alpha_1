@@ -1,0 +1,21 @@
+EnumNotAnEnum: "Implementation of 'Logger' is only available for enum types"
+
+EnumHasVariantAttr: "The '{}' attribute can only be used for enum variants"
+VariantHasEnumAttr: "The '{}' attribute can only be used at the top enum definition"
+
+EnumMissingAttr: "The 'Logger' implementation requires "
+  CrateIdx: "a 'crate_idx' attribute to be included at te top enum definition"
+  ModIdx: "a 'mod_idx' attribute to be included at the top enum definition"
+  Location: "a 'location' attribute to be included at the top enum definition"
+
+VariantMissingAttr: "The 'Logger' implementation requires either an"
+                    "'info_msg' attribute, a 'warn_msg' attribute, or "
+                    "an 'error_msg' attribute\n\n";
+
+AttrUsedMultipleTimes: "The '{}' attribute must only be used  once"
+
+ValueIsEmpty: "No value found for the '{}' attribute. The '{}' attribute requires {}"
+  CrateIdx: "an integer value to be passed",
+  ModIdx: "an integer value to be passed",
+  _: "a string value to be passed",
+
